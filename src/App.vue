@@ -1,4 +1,5 @@
 <template>
+  {{logged}}
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
@@ -35,7 +36,9 @@ export default {
     this.$store.dispatch('logged')
   },
   computed: {
-    logged(){ return this.$store.getters.getUserLogged }
+    logged(){
+      console.log(this.$store.getters['getUserIsLogged']);
+      return this.$store.getters['getUserIsLogged'] }
   }
 }
 </script>

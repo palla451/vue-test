@@ -1,4 +1,5 @@
 import axios from "axios";
+import router from "@/router";
 
 const state = {
     user: null,
@@ -26,6 +27,7 @@ const actions = {
         commit('setToken',response.data.toke);
         commit('setUserLogged',true);
         localStorage.setItem('token',response.data.token);
+        router.push('/')
     }
 };
 

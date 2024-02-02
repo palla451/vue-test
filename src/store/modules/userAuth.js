@@ -1,15 +1,15 @@
 import axios from "axios";
 
 const state = {
-    user: null
+    userIsLogged: null
 };
 
 const getters ={
-    getUserLogged: state => state.user
+    getUserIsLogged: state => state.userIsLogged
 };
 
-const mutation = {
-    setUser: (state,value) => { state.user = value }
+const mutations = {
+    setUserIsLogged: (state,userIsLogged) => { state.userIsLogged = userIsLogged }
 };
 
 const actions = {
@@ -17,7 +17,7 @@ const actions = {
             try {
                 const response = await axios.get('logged');
                 console.log(response.data.user);
-                commit('setUser',response.data.user);
+                commit('setUserIsLogged',response.data.user);
             }catch (e){
                 console.log(e.message);
         }
@@ -27,6 +27,6 @@ const actions = {
 export default {
     state,
     getters,
-    mutation,
+    mutations,
     actions
 }
